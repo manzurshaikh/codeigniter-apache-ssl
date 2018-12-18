@@ -1,0 +1,33 @@
+version: '2.2'
+services:
+  web:
+    build: .
+    container_name: webapp
+    ports:
+      - "80:80"
+      - "443:443"
+    links:
+      - mysqldb
+    volumes:
+      - $PWD:/var/www/html
+      - ./000-default.conf:/etc/apache2/sites-enabled/000-default.conf
+      - ./cert/web2018.crt:/etc/ssl/web2018.crt
+      - ./cert/server.key:/etc/ssl/server.key
+      - ./cert/web2018.ca-bundle:/etc/ssl/web2018.ca-bundle
+
+  mysqldb:
+    image: mysql:5.7.22
+    container_name: mysqldb
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: development
+      MYSQL_ROOT_PASSWORD: T1YO5JCHqrakgkmU
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
+
