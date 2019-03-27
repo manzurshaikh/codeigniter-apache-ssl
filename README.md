@@ -1,6 +1,6 @@
 
 
-##Docker with codeigniter-apache-ssl 
+## Docker with codeigniter-apache-ssl 
 This image serves as a starting point for legacy CodeIgniter projects.
 > https://github.com/manzurshaikh/codeigniter-apache-ssl.git
 
