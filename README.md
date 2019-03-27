@@ -11,4 +11,5 @@ This image serves as a starting point for legacy CodeIgniter projects.
 - SSL certificate copy into ssl directory
 - replace certificate and update into docker-compose.yml
   
-  
+  ## Working with Local Files
+- Using Docker volumes, you can mount local files inside a container.
